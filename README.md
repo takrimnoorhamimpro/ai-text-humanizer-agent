@@ -94,3 +94,18 @@ Every stage passes what the next one needs through shared **session state**, ins
 | `final_reporter` | *(none)* | Reads final scores and text from state, builds the report |
 
 `check_sapling_ai_score` is used in two places: once at baseline, and once per loop iteration by the critic. `exit_loop` belongs only to the critic, since it's the one that decides when the target is reached.
+
+## Setup
+
+Create a `.env` file in the project root with the following variables:
+
+```env
+GOOGLE_GENAI_USE_ENTERPRISE=0
+GOOGLE_API_KEY=      # Paste your Google AI Studio API key here
+SAPLING_API_KEY=     # Paste your Sapling AI Detector API key here
+```
+
+- **`GOOGLE_API_KEY`** — required for the Gemini model calls. Get one from [Google AI Studio](https://aistudio.google.com/apikey).
+- **`SAPLING_API_KEY`** — required for `check_sapling_ai_score`. Get one from [Sapling AI Detector](https://sapling.ai/ai-content-detector).
+
+Without both keys set, the pipeline will fail — the model calls need `GOOGLE_API_KEY`, and every `check_sapling_ai_score` call needs `SAPLING_API_KEY`.
