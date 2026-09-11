@@ -2,6 +2,8 @@
 
 A multi-agent pipeline (built with Google ADK) that takes any text and iteratively rewrites it until an AI-detection score drops below a target threshold — or a max number of attempts runs out.
 
+📺 **Watch the walkthrough:** [YouTube video](https://youtu.be/Bl7agllKzno)
+
 ## Architecture
 
 ```
